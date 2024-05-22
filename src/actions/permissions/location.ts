@@ -18,7 +18,7 @@ export const requestLocationPermissions = async(): Promise<PermissionStatus> => 
 
  if (status === 'blocked') {
   await openSettings();
-  // return await // checkLocationPermission();
+  return await checkLocationPermissions();
  }
 
  const permissionMapper: Record<RNPermissionsStatus, PermissionStatus> = {
@@ -30,7 +30,7 @@ export const requestLocationPermissions = async(): Promise<PermissionStatus> => 
  };
 
  return permissionMapper[status] ?? 'unavailable';
- 
+
 }
 
 
